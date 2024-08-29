@@ -1,2 +1,65 @@
-# coffeebeans_classification
-Accurate classification of roasted coffee beans into impaired and unimpaired categories is crucial for product consistency and consumer satisfaction. In this study, we employed a balanced dataset of 7,200 images, equally divided between the two categories, to explore the effectiveness of various feature extraction methods including Color Coherence Vector, Zernike Moment shape, and LBP texture feature paired with machine learning classifiers such as RandomForest, K-Nearest Neighbors, Decision Tree, and Gradient Boosting. We evaluated the impact of four distinct image preprocessing techniques: original, augmented, denoised, and combined augmented-denoised.  Our results demonstrate that the highest classification accuracy of **95.97%** was achieved using a combination of Color Coherence Vector and Zernike Moment features with an Extra Trees classifier configured with 300 estimators, no maximum depth, a minimum of 1 sample per leaf, a minimum of 2 samples per split, and a random state of 42, on the dataset that employed both augmented and denoised images, without k-fold cross-validation. When a 5-fold cross-validation was applied, the model achieved an accuracy of **95.88%**, indicating that the approach remains robust even under rigorous evaluation. These findings highlight the potential of integrating advanced feature extraction with robust data augmentation and denoising strategies for improving quality assessment in coffee beans and potentially other agricultural products.
+# Coffee Bean Classification Project
+
+This project aims to classify coffee beans using various machine learning techniques and image processing algorithms. It consists of two main components: feature extraction from coffee bean images and classification using these extracted features.
+
+## Features
+
+### Feature Extraction (`ml-feature-extraction.ipynb`)
+- Extracts various features from coffee bean images including:
+  - Texture features (LBP, GLCM, HOG, Gabor)
+  - Color features (Color moments, histograms, coherence vectors, color name histograms)
+  - Shape features (Hu moments, morphological features, Fourier descriptors, Zernike moments)
+- Supports image preprocessing including resizing and optional denoising
+- Implements data augmentation through horizontal flipping
+- Processes images in batches to manage memory usage
+- Saves extracted features to CSV files
+
+### Classification (`ml-classifier.ipynb`)
+- Implements various classification algorithms:
+  - Random Forest
+  - K-Nearest Neighbors
+  - Decision Tree
+  - Gradient Boosting
+  - Extra Trees
+  - XGBoost
+- Performs model evaluation using metrics such as accuracy, precision, recall, F1 score, and MSE
+- Supports k-fold cross-validation
+- Compares performance of different feature sets and classifiers
+- Saves results to an Excel file for easy analysis
+
+## Installation
+
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/coffee-bean-classification.git
+   cd coffee-bean-classification
+   ```
+
+2. Install the required packages:
+   ```
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+1. Feature Extraction:
+   - Open `ml-feature-extraction.ipynb` in Jupyter Notebook or JupyterLab
+   - Adjust the `root_path` variable to point to your dataset directory
+   - Run all cells to extract features and save them to CSV files
+
+2. Classification:
+   - Open `ml-classifier.ipynb` in Jupyter Notebook or JupyterLab
+   - Ensure the paths to the CSV files generated in the feature extraction step are correct
+   - Run all cells to perform classification and generate results
+
+## Results
+
+The classification results, including performance metrics for different models and feature sets, will be saved in an Excel file named `classification_results.xlsx`.
+
+## Contributing
+
+Contributions to improve the project are welcome. Please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
