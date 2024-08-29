@@ -59,7 +59,3 @@ The classification results, including performance metrics for different models a
 ## Contributing
 
 Contributions to improve the project are welcome. Please feel free to submit a Pull Request.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
